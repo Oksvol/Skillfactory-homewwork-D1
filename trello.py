@@ -12,13 +12,6 @@ base_url = "https://api.trello.com/1/{}"
 
 board_id = "HSAU1gXX"
 
-'''
-Первым делом научимся получать данные с нашей доски. 
-PI Trello отправляет ответы в формате JSON. Это очень удобный формат для обработки и чтения. 
-Для того чтобы превратить этот JSON в словари внутри Python, мы будем вызывать метод json() 
-у каждого объекта, полученного при помощи модуля requests. Это облегчит задачу парсинга ответов.
-
-'''
 
 def read():      
     # Получим данные всех колонок на доске:      
@@ -33,7 +26,7 @@ def read():
             print('\t' + 'Нет задач!')      
             continue      
         for task in task_data:      
-            print('\t' + task['name'])
+            print('\t' + task['name'] + " " + task['id'])
         print('\t' + "Количество задач: ", len(task_data)) 
     
 def create(name, column_name):      
